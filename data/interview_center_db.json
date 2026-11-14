@@ -1,0 +1,305 @@
+{
+  "approvedParticipants": [
+    {
+      "id": "part-1793317967388-mm90",
+      "email": "fazle.rabbe.doc@gmail.com",
+      "displayName": "Fazle Rabbi (Primary Admin & Owner)",
+      "status": "approved",
+      "allowedCategories": [
+        "all"
+      ],
+      "canViewResults": true,
+      "requireAccessCode": false,
+      "accessCodeHash": null,
+      "accessCodeDisplay": null,
+      "sessionVersion": 1,
+      "expiresAt": null,
+      "createdAt": "2026-10-29T23:52:47.388Z",
+      "updatedAt": "2026-11-01T22:45:00.000Z",
+      "createdBy": "fazle.rabbe.doc@gmail.com",
+      "notes": "Primary Administrator & Owner account"
+    },
+    {
+      "id": "participant-admin-owner",
+      "email": "fazlerabbe905@gmail.com",
+      "displayName": "Fazle Rabbi (Legacy Admin — Transition Verified)",
+      "status": "approved",
+      "allowedCategories": [
+        "all"
+      ],
+      "canViewResults": true,
+      "expiresAt": null,
+      "createdAt": "2026-10-26T19:32:23.522Z",
+      "updatedAt": "2026-10-26T19:32:23.522Z",
+      "createdBy": "fazlerabbe905@gmail.com",
+      "notes": "Legacy Administrator account (Retained for migration verification)"
+    }
+  ],
+  "activeSessions": [
+    {
+      "sessionId": "sess-1793318075796-b629dc99",
+      "tokenHash": "013b5b7b994412ba1334f532e55641608a76ea52e34d474a2df681e8502bd845",
+      "participantId": "part-1793317967388-mm90",
+      "email": "fazle.rabbe.doc@gmail.com",
+      "sessionVersion": 1,
+      "createdAt": "2026-10-29T23:54:35.796Z",
+      "expiresAt": "2026-10-30T11:54:35.796Z",
+      "lastVerifiedAt": "2026-10-29T23:54:35.796Z"
+    }
+  ],
+  "attempts": [],
+  "customQuestions": [],
+  "rubricConfig": {
+    "roleKnowledgeWeight": 25,
+    "situationalJudgmentWeight": 25,
+    "grammarVocabWeight": 20,
+    "clarityFluencyWeight": 20,
+    "professionalismSafetyWeight": 10,
+    "passThreshold": 70,
+    "minDurationSecondsL1": 300,
+    "minDurationSecondsL2": 480,
+    "minDurationSecondsL3": 600,
+    "minDurationSecondsCefr": 300,
+    "strictFiveMinuteCap": false,
+    "showModelAnswersAfterCompletion": true,
+    "version": "rubric-v1.0",
+    "updatedAt": "2026-10-26T00:00:00.000Z",
+    "updatedBy": "fazle.rabbe.doc@gmail.com"
+  },
+  "roleRubricOverrides": {},
+  "providerEvents": [
+    {
+      "provider": "gemini",
+      "model": "gemini-3.8-flash",
+      "operation": "evaluate_answer",
+      "eventType": "timeout",
+      "statusCode": 408,
+      "message": "Gemini API request timed out. Progress is saved safely.",
+      "latencyMs": 8002,
+      "retryAttempt": 0,
+      "id": "gem-evt-1793043547168-k7h9a",
+      "timestamp": "2026-10-26T19:39:07.168Z"
+    }
+  ],
+  "auditEvents": [
+    {
+      "id": "audit-1793376136974-aux7m",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "directportal.test@gmail.com",
+      "details": "Removed from allowlist & terminated active sessions",
+      "timestamp": "2026-10-30T16:02:16.974Z"
+    },
+    {
+      "id": "audit-1793376136243-33d9v",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "directportal.test@gmail.com",
+      "details": "Approved with categories: bartender, AccessCode=DirectEmail",
+      "timestamp": "2026-10-30T16:02:16.243Z"
+    },
+    {
+      "id": "audit-1793318836434-t246l",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "pin.participant@gmail.com",
+      "details": "Removed from allowlist & terminated active sessions",
+      "timestamp": "2026-10-30T00:07:16.434Z"
+    },
+    {
+      "id": "audit-1793318836430-7b434",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "nopin.participant@gmail.com",
+      "details": "Removed from allowlist & terminated active sessions",
+      "timestamp": "2026-10-30T00:07:16.430Z"
+    },
+    {
+      "id": "audit-1793318836425-ozlm2",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "PATCH_PARTICIPANT",
+      "target": "pin.participant@gmail.com",
+      "details": "Updated status=revoked, expiresAt=none, sessionsPurged=true",
+      "timestamp": "2026-10-30T00:07:16.426Z"
+    },
+    {
+      "id": "audit-1793318836403-3q4px",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "pin.participant@gmail.com",
+      "details": "Approved with categories: all, AccessCode=Required",
+      "timestamp": "2026-10-30T00:07:16.403Z"
+    },
+    {
+      "id": "audit-1793318836390-qiac9",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "nopin.participant@gmail.com",
+      "details": "Approved with categories: all, AccessCode=DirectEmail",
+      "timestamp": "2026-10-30T00:07:16.390Z"
+    },
+    {
+      "id": "audit-1793318273015-6brok",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_ATTEMPT",
+      "target": "exam-1793318273004-7h5xn",
+      "details": "Deleted attempt for exam.tester@gmail.com (English Level Exam (CEFR A1–C2) CEFR B2 (21/30))",
+      "timestamp": "2026-10-29T23:57:53.015Z"
+    },
+    {
+      "id": "audit-1793318273010-4y7nf",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "exam.tester@gmail.com",
+      "details": "Removed from allowlist & terminated active sessions",
+      "timestamp": "2026-10-29T23:57:53.010Z"
+    },
+    {
+      "id": "audit-1793318272986-mr4kf",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "exam.tester@gmail.com",
+      "details": "Approved with categories: all, AccessCode=DirectEmail",
+      "timestamp": "2026-10-29T23:57:52.986Z"
+    },
+    {
+      "id": "audit-1793317967388-7fktq",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "fazle.rabbe.doc@gmail.com",
+      "details": "Approved with categories: cefr_english, AccessCode=DirectEmail",
+      "timestamp": "2026-10-29T23:52:47.388Z"
+    },
+    {
+      "id": "audit-1793047605726-66y9i",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_ATTEMPT",
+      "target": "att-1793047605675-dxqzwd",
+      "details": "Deleted attempt for approved.waiter@gmail.com (Waiter / Food & Beverage Server Level 1 — Beginner)",
+      "timestamp": "2026-10-26T20:46:45.726Z"
+    },
+    {
+      "id": "audit-1793047605723-v6oau",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "approved.waiter@gmail.com",
+      "details": "Removed from allowlist & terminated active sessions",
+      "timestamp": "2026-10-26T20:46:45.723Z"
+    },
+    {
+      "id": "audit-1793047605718-x545s",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "pin.candidate@gmail.com",
+      "details": "Removed from allowlist & terminated active sessions",
+      "timestamp": "2026-10-26T20:46:45.718Z"
+    },
+    {
+      "id": "audit-1793047605707-sebnt",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "PATCH_PARTICIPANT",
+      "target": "approved.waiter@gmail.com",
+      "details": "Updated status=revoked, expiresAt=none, sessionsPurged=true",
+      "timestamp": "2026-10-26T20:46:45.707Z"
+    },
+    {
+      "id": "audit-1793047605685-sfd1h",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "pin.candidate@gmail.com",
+      "details": "Approved with categories: all, AccessCode=Required",
+      "timestamp": "2026-10-26T20:46:45.685Z"
+    },
+    {
+      "id": "audit-1793047605663-umjpx",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "approved.waiter@gmail.com",
+      "details": "Approved with categories: waiter,cefr_english, AccessCode=DirectEmail",
+      "timestamp": "2026-10-26T20:46:45.663Z"
+    },
+    {
+      "id": "audit-1793043547216-md75z",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "candidate.b@gmail.com",
+      "details": "Removed from allowlist",
+      "timestamp": "2026-10-26T19:39:07.216Z"
+    },
+    {
+      "id": "audit-1793043547214-6r2w5",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_PARTICIPANT",
+      "target": "candidate.a@gmail.com",
+      "details": "Removed from allowlist",
+      "timestamp": "2026-10-26T19:39:07.214Z"
+    },
+    {
+      "id": "audit-1793043547211-qwzlp",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_ATTEMPT",
+      "target": "att-1793043177665-lir6wx",
+      "details": "Deleted attempt for candidate.a@gmail.com (Maintenance Electrician Level 1 — Entry / Basic Operational)",
+      "timestamp": "2026-10-26T19:39:07.211Z"
+    },
+    {
+      "id": "audit-1793043547209-qi7ve",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "DELETE_ATTEMPT",
+      "target": "att-1793043539153-2scoi5",
+      "details": "Deleted attempt for candidate.a@gmail.com (Maintenance Electrician Level 1 — Entry / Basic Operational)",
+      "timestamp": "2026-10-26T19:39:07.209Z"
+    },
+    {
+      "id": "audit-1793043547191-mauek",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "PATCH_PARTICIPANT",
+      "target": "candidate.a@gmail.com",
+      "details": "Updated status=revoked, expiresAt=none",
+      "timestamp": "2026-10-26T19:39:07.191Z"
+    },
+    {
+      "id": "audit-1793043539140-f4ad9",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "UPDATE_PARTICIPANT",
+      "target": "candidate.b@gmail.com",
+      "details": "Status=approved, Categories=waiter",
+      "timestamp": "2026-10-26T19:38:59.140Z"
+    },
+    {
+      "id": "audit-1793043539134-u72gm",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "UPDATE_PARTICIPANT",
+      "target": "candidate.a@gmail.com",
+      "details": "Status=approved, Categories=all",
+      "timestamp": "2026-10-26T19:38:59.134Z"
+    },
+    {
+      "id": "audit-1793043177652-w6uzt",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "candidate.b@gmail.com",
+      "details": "Approved with categories: waiter",
+      "timestamp": "2026-10-26T19:32:57.652Z"
+    },
+    {
+      "id": "audit-1793043177646-s30hq",
+      "actorEmail": "fazlerabbe905@gmail.com",
+      "action": "ADD_PARTICIPANT",
+      "target": "candidate.a@gmail.com",
+      "details": "Approved with categories: all",
+      "timestamp": "2026-10-26T19:32:57.646Z"
+    }
+  ],
+  "stats": {
+    "totalRequests": 1,
+    "successfulRequests": 0,
+    "rateLimitEvents": 0,
+    "configErrorEvents": 0,
+    "retryRecoveries": 0,
+    "lastSuccessAt": null,
+    "lastErrorAt": "2026-10-26T19:39:07.168Z",
+    "lastErrorMessage": "Gemini API request timed out. Progress is saved safely.",
+    "lastErrorClass": "timeout"
+  }
+}

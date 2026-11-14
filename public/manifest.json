@@ -1,0 +1,25 @@
+{
+  "name": "ZENVIK Agent — AI Career & Employment Platform",
+  "short_name": "ZENVIK",
+  "description": "AI Career & Employment Platform with job discovery, sponsorship intelligence, CV management, and personal growth tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0C10",
+  "theme_color": "#0B0C10",
+  "categories": ["business", "productivity", "lifestyle", "finance"],
+  "icons": [
+    {
+      "src": "/assets/aistudio/file_00000000abf8820a8353e92b70669dc5_24b0e7a6.png",
+      "sizes": "192x192 512x512 1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

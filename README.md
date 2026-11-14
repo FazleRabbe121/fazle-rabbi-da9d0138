@@ -1,73 +1,201 @@
-# Fazle Rabbi — Personal Brand Website & Private Recipe Dashboard
+# CCD — A Better You Every Day & Automated Hospitality Job Engine
 
-Public portfolio for a professional Bartender, Barista and Mixologist, plus an owner-only cocktail recipe vault.
+An executive-tier personal development, financial management, habit integrity, and automated hospitality career application system tailored for hospitality professionals.
 
-- **Stack:** TanStack Start (React 19 + TypeScript), Tailwind CSS v4, Lovable Cloud (Postgres, Auth, Storage).
-- **Public:** `/` (all portfolio sections), `/login`, `/reset-password`.
-- **Private:** `/dashboard` — the private recipe book. A 4-digit passcode screen opens first, then sign in / create account. Every account sees only its own recipes (Row Level Security).
+---
 
-## Local setup
+## 🌟 Key Features
 
-```bash
-bun install          # or npm install
-cp .env.example .env # if you are not running inside Lovable
-bun run dev          # http://localhost:8080
-bun run test         # unit tests (calculators, scaling)
+1. **Cyprus Job Market (Strict Isolation)**
+   - Specifically dedicated to Cyprus hospitality openings across Limassol Marina, Paphos, Ayia Napa, Protaras, Larnaca, Nicosia, and Polis Chrysochous.
+   - Target positions: Bartender, Barman, Barista, Mixologist, Hotel Bar, Restaurant Bar, Pool Bar, Lobby Bar, Café, and Beverage/Hospitality roles.
+
+2. **Europe Job Market (Pan-European)**
+   - Open search across top European hospitality markets (Cyprus, Greece, Malta, Italy, Spain, Portugal, France, Germany, Austria, Netherlands, Belgium, Ireland, Switzerland, Croatia, and more).
+
+3. **10-Day Applied Job Hide System**
+   - Automatically hides applied jobs from search results for 10 days to prevent duplicates.
+   - Persistently stores Job ID, Company, Position, Job URL, Recipient Email, Application Date, Gmail Message ID, and Application Status.
+   - Dedicated "10-Day Protected Vault" modal for tracking cooldowns.
+
+4. **3-AI Verification Consensus (Gemini + OpenAI + Grok)**
+   - Real-time search via Google Search Grounding.
+   - Legitimacy verification, direct corporate HR email verification, and 3-month posting freshness checks.
+
+5. **Gmail Direct Application Engine**
+   - Sends individual, personalized emails directly from the user's connected Gmail account (no CC/BCC).
+   - Automatically attaches candidate's CV (PDF from template or phone storage).
+   - Full live bounce detection (`DELIVERY FAILED`) and incoming reply tracking.
+
+6. **Native Android APK Packaging**
+   - Packaged with an Android application wrapper in `/android`.
+   - Embeds the web application assets for offline capability and rapid loading.
+   - Supports native Android file picking for attaching CVs directly from phone storage.
+   - Automated GitHub Actions workflow to build and download the Android APK artifact.
+
+---
+
+## ⚡ 1-Click Windows USB Build & Install System (Laptop + USB + Android Phone)
+
+If you have a **Windows laptop**, an **Android phone**, and a **USB cable**, you can build, install, and open the app on your phone with a **single double-click** — without typing any commands!
+
+### 🎯 Workflow Overview
+
+```
+ANDROID PHONE  ──(USB Cable)──>  WINDOWS LAPTOP
+                                       ↓
+                        Double-Click "BUILD_AND_INSTALL.bat"
+                                       ↓
+                        Application Builds Automatically
+                                       ↓
+                        APK Created Automatically
+                                       ↓
+                        APK Installed onto Connected Phone
+                                       ↓
+                        App Automatically Launches on Phone!
 ```
 
-### Environment variables (public values only)
+---
 
-| Variable | Purpose |
-|---|---|
-| `VITE_SUPABASE_URL` | Backend URL |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Public anon/publishable key (safe for the browser) |
-| `VITE_BASE_PATH` | Base path, default `/`. Use `/<repo>/` for GitHub Pages project sites |
-| `STATIC_SPA` | `true` builds a static single-page shell (used by the GitHub Pages workflow) |
+### 📱 First-Time Phone Setup (Only Do Once)
 
-No secret keys are used in the frontend. All access control lives in the database.
+1. Open **Settings** on your Android phone.
+2. Go to **About Phone**.
+3. Tap **Build Number** 7 times continuously until you see *"You are now a developer!"*.
+4. Go to **Settings → System → Developer Options** (or search "Developer options" in Settings).
+5. Turn ON **USB Debugging**.
+6. Connect your phone to your Windows laptop using the USB cable.
+7. Unlock your phone. When Android shows the popup **"Allow USB debugging?"**:
+   - Check the box: `[x] Always allow from this computer`
+   - Tap **"Allow"**.
 
-## Backend setup (one time)
+---
 
-Database tables, roles, policies and the private `recipe-images` bucket are already created by the migration in `drizzle/migrations`.
+### 🚀 Every Time You Test or Update the App:
 
-1. **Passcode gate:** `/dashboard` (the "Recipes" menu link) first shows *Private Recipe Book* and asks for the 4-digit passcode. Only the SHA-256 hash of `frabbi:<code>` is in the code (`src/lib/passcode.ts`). The unlock lasts for the browser tab session (sessionStorage). To change the code, put the new hash in `PASSCODE_HASH`. This is a convenience gate only — a 4-digit hash can be guessed by anyone who reads the code; real protection is the login and database rules below.
-2. **Sign-up is open:** `/login` has *Sign in* and *Create account* tabs plus *Forgot password*. New accounts confirm their email before signing in. Add your site URL (and `https://<user>.github.io/<repo>/`) to the auth redirect URLs.
-3. **Per-account recipes:** each recipe row has `user_id` (default `auth.uid()`); RLS allows select/insert/update/delete only on your own rows. Images live in the private `recipe-images` bucket under a folder named with your user id, and RLS only allows your own folder. Categories are readable by any signed-in user. Contact messages stay admin-only (`user_roles` + `has_role`).
-4. **Drink pictures:** `src/components/recipes/DrinkPicture.tsx` draws each drink as SVG from glassware, ice, garnish and ingredients (rules in `src/lib/drink.ts`) — no AI or external service. It appears in the form, cards, detail, print and PDF. Pick a colour in the form to override the automatic one.
+1. Connect your Android phone to your laptop with the USB cable.
+2. In the project root folder, double-click:
+   ```
+   BUILD_AND_INSTALL.bat
+   ```
+3. That's it! The script will automatically:
+   - Check your environment (Node.js, Java, Android SDK/ADB).
+   - Detect your connected phone model.
+   - Compile the web frontend (`dist`).
+   - Bundle web assets directly into `android/app/src/main/assets/dist/`.
+   - Build the Android APK via Gradle (`gradlew.bat assembleDebug`).
+   - Reinstall/update the APK on your phone (`adb install -r`).
+   - Automatically launch the application on your phone!
 
-Security model: roles are stored in `user_roles` (never on a profile), checked through the security-definer function `has_role(uid, 'admin')`. `contact_messages` allows public insert only (no public read), with a database trigger that rate-limits submissions; the form also has a honeypot field, a minimum fill time and a per-browser cooldown.
+---
 
-## Editing content
+### 🛠️ Included Automation Utility Scripts
 
-All text (bio, experience, skills, certifications, highlights, contact details, social links) lives in **`src/content/site.ts`**. Search for `[PLACEHOLDER]`.
+| Script Name | Purpose |
+|-------------|---------|
+| **`BUILD_AND_INSTALL.bat`** | **Primary 1-Click script:** Builds, installs to USB phone, and launches app. |
+| **`SETUP_ANDROID_ENVIRONMENT.bat`** | Diagnostic tool that checks Node.js, Java 17, Android SDK & ADB readiness. |
+| **`CHECK_ANDROID_DEVICE.bat`** | 2-second tool to check if phone is detected, authorized, and ready over USB. |
+| **`BUILD_RELEASE.bat`** | Builds the standalone Android Release APK (`assembleRelease`). |
 
-### Hero video
-Put your video at **`public/hero.mp4`** (H.264 MP4, ideally < 8 MB, 1920×1080, no audio). The path is defined once in `src/lib/media.ts` (`HERO_VIDEO_SRC`). If the file is missing, the poster image is shown automatically.
+---
 
-### CV and images
-- CV: replace `public/Fazle-Rabbi-CV.pdf` (keep the file name).
-- Photos: replace files in `src/assets/` keeping the same names, or change the imports at the top of `src/content/site.ts` (gallery items, signature cocktails, hero poster). The About/Contact portrait is hosted media: replace it with `lovable-assets create --file <your-photo> --filename fazle-rabbi-portrait.jpg > src/assets/fazle-rabbi-portrait.jpg.asset.json`.
-- SEO: set `siteUrl` in `site.ts`, and update the domain in `public/robots.txt` and `public/sitemap.xml`.
+## 📱 Building the Android APK via GitHub Actions
 
-### Venue logos
-Employer logos live in **`public/logos/`** and are referenced from `src/content/site.ts`:
-- `experience[].logos` — shown on each job in the Experience timeline (a job can carry more than one, e.g. Epsilon Restro Bar + Gazebo Mare).
-- `venues[].logo` — shown in the static "Where I have worked" logo wall; `trainedWith[].logo` in the row below it.
+This repository includes a pre-configured GitHub Actions workflow (`.github/workflows/build-android-apk.yml`) that automatically builds the Android APK.
 
-To add one: drop the official file in `public/logos/` and set its path (e.g. `logo: "/logos/oneills-irish-pub.jpg"`). Without a file, an elegant gold text wordmark is shown instead — never hotlink logos from other websites or draw imitations.
+### Step 1: Push Project to Your GitHub Repository
 
-## Dashboard features
-Add / edit / duplicate / delete recipes, image upload (resized & compressed in the browser, stored privately and shown via signed URLs), search by name/ingredient/category, category filter, sort by name/date, favourites, detail view, print, branded PDF export, JSON/CSV backup and validated JSON import with duplicate handling, measurement converter, cost calculator (cost per serving, margin %, pour cost %), recipe scaling with “save as new”.
+Initialize and push to your GitHub repository:
 
-## Deploying
+```bash
+git add .
+git commit -m "Complete project with Cyprus/Europe Job Markets and Android APK configuration"
+git branch -M main
+git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY_NAME>.git
+git push -u origin main
+```
 
-### Lovable
-Click **Publish** in Lovable. Nothing else is required.
+### Step 2: Automatic APK Build on GitHub
 
-### GitHub Pages
-1. Push the repo to GitHub. In **Settings → Pages**, set **Source = GitHub Actions**.
-2. In **Settings → Secrets and variables → Actions** add secrets `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`, and a variable `VITE_BASE_PATH` (e.g. `/my-repo/`, or `/` for a user site / custom domain).
-3. Push to `main`. `.github/workflows/deploy.yml` builds with Node 20 as a static SPA and copies `index.html` to `404.html`, so deep links like `/dashboard` and `/reset-password` load correctly.
-4. Add the GitHub Pages `/reset-password` URL to the auth redirect URLs (see above).
+1. Once pushed to GitHub, navigate to the **Actions** tab in your repository.
+2. You will see the **Build Android APK** workflow running automatically.
+3. You can also trigger it manually anytime by clicking **Run workflow** under **Actions** → **Build Android APK**.
 
-Note: the GitHub Pages build is a client-only version of the site, so search engines see less pre-rendered content than on Lovable hosting.
+### Step 3: Download and Install APK on Android Phone
+
+1. In the **Actions** tab, click on the completed workflow run.
+2. Scroll down to the **Artifacts** section at the bottom.
+3. Click on **CCD-Hospitality-Android-App-Debug-APK** to download the ZIP file.
+4. Unzip the file on your computer or phone to obtain `app-debug.apk`.
+5. Transfer `app-debug.apk` to your Android phone (or download directly via browser on your phone).
+6. Tap the APK file to install (allow "Install from Unknown Sources" if prompted by Android).
+
+---
+
+## 💻 Local Web & Backend Development
+
+### Prerequisites
+
+- Node.js 18+ or 20+
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Run Dev Server (Vite + Express Backend)
+
+```bash
+npm run dev
+```
+
+The application runs on `http://localhost:3000`.
+
+### Production Build
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## 🔒 Security & Environment Variables
+
+Never commit private credentials or API keys directly to GitHub. Configure sensitive values in your repository's **Settings → Secrets and variables → Actions**:
+
+- `GEMINI_API_KEY`: Google Gemini API key
+- `OPENAI_API_KEY`: OpenAI API key
+- `GROK_API_KEY`: xAI Grok API key
+
+---
+
+## 📂 Project Architecture
+
+```
+├── .github/workflows/       # GitHub Actions automated Android APK builder
+│   └── build-android-apk.yml
+├── android/                 # Android project source and Gradle configuration
+│   ├── app/
+│   │   ├── build.gradle.kts
+│   │   ├── google-services.json
+│   │   └── src/main/
+│   │       ├── AndroidManifest.xml
+│   │       ├── java/com/ccd/abetteryou/MainActivity.kt  # Full Android WebView host
+│   │       └── assets/dist/                            # Bundled web application assets
+│   ├── build.gradle.kts
+│   ├── settings.gradle.kts
+│   ├── gradlew              # Executable Gradle wrapper
+│   └── gradlew.bat
+├── src/                     # React TypeScript frontend
+│   ├── components/          # UI Components & AI Automated Job Engine
+│   ├── services/            # Gmail, Firebase, Job Database & Cooldown Service
+│   ├── types/               # Type definitions
+│   └── views/               # Views (Job Engine, CV Manager, Finance, Habits)
+├── server.ts                # Express backend with 3-AI search & verification pipeline
+├── package.json
+└── vite.config.ts
+```

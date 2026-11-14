@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading, [class*="Cinzel"] {
+    font-family: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+}
+
+/* A4 Print exact dimensions and print cleanup */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    page-break-after: always;
+    break-after: page;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+  }
+
+  .cv-page:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 9999px;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: rgba(20, 22, 27, 0.6);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Light / Dark Mode System */
+html.light {
+  color-scheme: light;
+  background-color: #f4f6fa;
+  color: #0f172a;
+}
+
+html.dark {
+  color-scheme: dark;
+  background-color: #131519;
+  color: #f4f4f5;
+}
+
+/* ============================================================================
+   LUXURY DARK CHARCOAL & GRAPHITE GLASSMORPHISM SYSTEM (Dark Mode Harmonization)
+   Matches Reference Video across every page & component
+   ============================================================================ */
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#101625]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#11141c]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#12151e]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#141824]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#151822]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#151924]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#161a26]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#181c28]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#1b202e]"] {
+  background-color: rgba(29, 31, 38, 0.82) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42) !important;
+}
+
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#090b10]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0b0c10]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0b0d13]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0b0e17]"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0d0f17]"] {
+  background-color: #131519 !important;
+}
+
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-[#1"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-[#2"],
+html.dark :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).border-slate-800 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ============================================================================
+   LIGHT MODE HARMONIZATION (Crisp White & Slate Glassmorphism)
+   ============================================================================ */
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="text"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="email"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="number"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="password"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="date"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="month"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input[type="search"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) textarea,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input:focus,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) textarea:focus,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) select:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12) !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) input::placeholder,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *) textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Automatic Premium White UI harmonization for dark card surfaces in Light Mode */
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#1d1f26]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#1c1e24]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#101625]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#11141c]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#12151e]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#141824]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#151822]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#151924]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#161a26]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#181c28]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#1b202e]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).bg-slate-900,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-slate-900/"] {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.03) !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#14161b]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#131519]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#090b10]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0b0c10]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0b0d13]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0b0e17]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0d0f17]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0e131f]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-[#0f131d]"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).bg-slate-950,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-slate-950/"]:not(.fixed) {
+  background-color: #f8fafc !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).bg-slate-800,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-slate-800/"] {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+}
+
+/* Harmonize dark borders to crisp slate borders in Light Mode */
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-white/"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-[#1"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-[#2"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).border-slate-800,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-slate-800/"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).border-slate-700,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="border-slate-700/"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).border-gray-800 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Harmonize dark-mode text colors inside cards when in Light Mode, preserving white text on vibrant CTA buttons */
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-white:not([class*="bg-blue-"]):not([class*="bg-indigo-"]):not([class*="bg-violet-"]):not([class*="bg-emerald-"]):not([class*="bg-rose-"]):not([class*="bg-amber-"]):not([class*="bg-red-"]):not([class*="bg-purple-"]):not([class*="bg-slate-9"]):not([class*="bg-[#141517]"]):not([class*="from-blue-"]):not([class*="from-indigo-"]):not([class*="from-emerald-"]):not([class*="from-rose-"]):not([class*="from-violet-"]):not([class*="from-amber-"]):not([class*="from-purple-"]):not(svg) {
+  color: #0f172a !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-zinc-200,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-zinc-300,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-slate-200,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-slate-300,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-gray-200,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-gray-300 {
+  color: #334155 !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-zinc-400,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-slate-400,
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *).text-gray-400 {
+  color: #64748b !important;
+}
+
+/* Harmonize dark translucent badges in Light Mode for crisp contrast */
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-emerald-950"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-emerald-900"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-emerald-500/1"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-emerald-500/2"] {
+  background-color: #ecfdf5 !important;
+  color: #047857 !important;
+  border-color: #a7f3d0 !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-blue-950"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-blue-900"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-blue-500/1"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-blue-500/2"] {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border-color: #bfdbfe !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-indigo-950"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-indigo-900"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-indigo-500/1"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-indigo-500/2"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-violet-950"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-purple-950"] {
+  background-color: #f5f3ff !important;
+  color: #6d28d9 !important;
+  border-color: #ddd6fe !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-amber-950"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-amber-900"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-amber-500/1"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-amber-500/2"] {
+  background-color: #fffbeb !important;
+  color: #b45309 !important;
+  border-color: #fde68a !important;
+}
+
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-rose-950"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-rose-900"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-rose-500/1"],
+html.light :not(#cv-print-area):not(#cv-print-area *):not(#cv-direct-card-print):not(#cv-direct-card-print *)[class*="bg-rose-500/2"] {
+  background-color: #fff1f2 !important;
+  color: #be123c !important;
+  border-color: #fecdd3 !important;
+}
+
+/* Absolute insulation for the printable A4 CV document */
+#cv-print-area {
+  color: #1a202c !important;
+  background-color: #ffffff !important;
+}

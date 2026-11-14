@@ -1,0 +1,12 @@
+{
+  "full_name": "YOUR NAME",
+  "phone": "+00 000 000 0000",
+  "reply_to": "",
+  "location": "Cyprus",
+  "roles": ["Bartender", "Barista", "Waiter"],
+  "experience_summary": "Write 2-3 TRUE sentences: years of experience, venues, skills (e.g. cocktails, espresso, service in 5-star hotels).",
+  "languages": ["English (state your real level)", "Bengali (native)"],
+  "skills": ["Classic and signature cocktails", "Espresso and latte art", "Fine-dining service"],
+  "availability": "Available from <date>; willing to relocate.",
+  "work_authorization": "Write ONE honest sentence, e.g.: I am a Bangladeshi citizen currently working legally in Cyprus and I would need work-permit support from a new employer."
+}

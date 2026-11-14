@@ -1,0 +1,46 @@
+{
+  "activeProvider": "gemini",
+  "preservedInactiveProviders": [
+    "openai (preserved_inactive)",
+    "grok (preserved_inactive)"
+  ],
+  "quotaDate": "2026-11-14",
+  "dailyQuotaLimit": 40,
+  "dailyQuotaUsed": 2,
+  "lastSuccessfulSearchTime": "2026-11-14T14:57:22.422Z",
+  "nextScheduledDailyRun": "2026-11-15T14:57:22.422Z",
+  "totalDailyScheduledRuns": 3,
+  "lastScheduledRunAddedCount": 6,
+  "cachedSearchQueries": {
+    "{\"q\":\"maintenance\",\"t\":\"\",\"c\":\"cyprus\",\"e\":\"\",\"i\":\"\",\"s\":\"\",\"m\":\"all\"}": {
+      "timestamp": "2026-10-21T22:31:14.186Z",
+      "recommendedFilters": {
+        "recommendedRoles": [
+          "Hotel Maintenance Technician",
+          "Facilities Assistant",
+          "Handyman",
+          "Pool Maintenance Technician",
+          "General Maintenance Worker"
+        ],
+        "recommendedCountries": [
+          "Cyprus",
+          "Greece",
+          "Malta"
+        ],
+        "recommendedIndustries": [
+          "Hospitality",
+          "Real Estate",
+          "Facilities Management"
+        ],
+        "rationale": "While the candidate has a strong F&B background, the search for 'Maintenance' in Cyprus is best targeted toward the hospitality sector where their familiarity with hotel environments and guest service provides a transferable soft-skill base."
+      },
+      "jobIds": [
+        "job-persist-1792621874174-ppowz",
+        "job-persist-1792621874176-87dxe",
+        "job-persist-1792621874177-x1gs5",
+        "job-persist-1792621874179-cyd0e",
+        "job-persist-1792621874182-e66op"
+      ]
+    }
+  }
+}
