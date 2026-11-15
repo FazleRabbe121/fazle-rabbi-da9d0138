@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { InMemoryAgentRepository } from '../../src/personal-ai-engine/storage/in-memory-repository.mjs';
-import { discoverAndStoreJobs } from '../../src/personal-ai-engine/jobs/discovery-service.mjs';
+import { InMemoryAgentRepository } from '../../src/zenvik-agent/personal-ai-engine/storage/in-memory-repository.mjs';
+import { discoverAndStoreJobs } from '../../src/zenvik-agent/personal-ai-engine/jobs/discovery-service.mjs';
 
 test('discovers, filters and deduplicates vacancies for one user', async () => {
   const repository = new InMemoryAgentRepository();

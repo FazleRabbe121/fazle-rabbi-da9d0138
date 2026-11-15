@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CareerAgentPlatform } from '../../src/personal-ai-engine/agents/career-agent-platform.mjs';
-import { InMemoryAgentRepository } from '../../src/personal-ai-engine/storage/in-memory-repository.mjs';
+import { CareerAgentPlatform } from '../../src/zenvik-agent/personal-ai-engine/agents/career-agent-platform.mjs';
+import { InMemoryAgentRepository } from '../../src/zenvik-agent/personal-ai-engine/storage/in-memory-repository.mjs';
 
 test('daily cycle is idempotent per user and day', async () => {
   const now = () => new Date('2026-11-02T06:00:00.000Z');

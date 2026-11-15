@@ -4,6 +4,7 @@ import { BookLock, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AuthShell } from "./login";
 import { checkPasscode, isUnlocked, markUnlocked } from "@/lib/passcode";
+import { getReturnTo } from "@/lib/return-to";
 
 export const Route = createFileRoute("/unlock")({
   head: () => ({
@@ -26,13 +27,13 @@ function UnlockPage() {
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
   const refs = useRef<(HTMLInputElement | null)[]>([]);
-  useEffect(() => { if (isUnlocked()) navigate({ to: "/dashboard", replace: true }); else refs.current[0]?.focus(); }, [navigate]);
+  useEffect(() => { if (isUnlocked()) navigate({ to: getReturnTo(), replace: true }); else refs.current[0]?.focus(); }, [navigate]);
 
   async function submit(code: string) {
     setBusy(true); setErr("");
     const ok = await checkPasscode(code);
     setBusy(false);
-    if (ok) { markUnlocked(); navigate({ to: "/dashboard", replace: true }); }
+    if (ok) { markUnlocked(); navigate({ to: getReturnTo(), replace: true }); }
     else { setErr("Incorrect passcode. Please try again."); setDigits(["", "", "", ""]); refs.current[0]?.focus(); }
   }
   function setAt(i: number, v: string) {
@@ -43,11 +44,11 @@ function UnlockPage() {
   }
 
   return (
-    <AuthShell title="Private Recipe Book">
+    <AuthShell title={getReturnTo() === "/zenvik-agent" ? "Private Area" : "Private Recipe Book"}>
       <BookLock className="mb-4 h-8 w-8 text-primary" aria-hidden />
       <form onSubmit={(e) => { e.preventDefault(); void submit(digits.join("")); }} className="space-y-6">
         <fieldset>
-          <legend className="mb-4 text-sm text-muted-foreground">Enter the 4-digit passcode to open the recipe book.</legend>
+          <legend className="mb-4 text-sm text-muted-foreground">Enter the 4-digit passcode to continue.</legend>
           <div className="flex justify-center gap-3">
             {digits.map((d, i) => (
               <input key={i} ref={(el) => { refs.current[i] = el; }} value={d} inputMode="numeric" type="password" autoComplete="off" maxLength={1}
@@ -58,7 +59,7 @@ function UnlockPage() {
           </div>
         </fieldset>
         {err && <p role="alert" className="text-center text-sm text-destructive">{err}</p>}
-        <Button type="submit" variant="gold" size="lg" className="w-full" disabled={busy || digits.some((d) => !d)}>{busy && <Loader2 className="animate-spin" />}Open recipe book</Button>
+        <Button type="submit" variant="gold" size="lg" className="w-full" disabled={busy || digits.some((d) => !d)}>{busy && <Loader2 className="animate-spin" />}Unlock</Button>
       </form>
     </AuthShell>
   );

@@ -47,7 +47,7 @@ import { resolveVerifiedEmployerEmail } from '../utils/verifiedEmployerEmails.js
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.resolve(__dirname, '../../data');
+const DATA_DIR = path.resolve(__dirname, '../../../data');
 const DB_FILE_PATH = path.join(DATA_DIR, 'personal_ai_agent_db.json');
 
 export type PersonalAIActivationState =

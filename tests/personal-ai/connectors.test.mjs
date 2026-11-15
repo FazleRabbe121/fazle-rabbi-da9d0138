@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { GreenhouseJobBoardConnector } from '../../src/personal-ai-engine/jobs/connectors/greenhouse.mjs';
-import { LeverJobBoardConnector } from '../../src/personal-ai-engine/jobs/connectors/lever.mjs';
+import { GreenhouseJobBoardConnector } from '../../src/zenvik-agent/personal-ai-engine/jobs/connectors/greenhouse.mjs';
+import { LeverJobBoardConnector } from '../../src/zenvik-agent/personal-ai-engine/jobs/connectors/lever.mjs';
 
 test('Greenhouse public board connector normalizes official board posts', async () => {
   const connector = new GreenhouseJobBoardConnector({

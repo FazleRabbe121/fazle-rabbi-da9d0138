@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { ApprovalService } from '../../src/personal-ai-engine/approvals/approval-service.mjs';
-import { InMemoryAgentRepository } from '../../src/personal-ai-engine/storage/in-memory-repository.mjs';
+import { ApprovalService } from '../../src/zenvik-agent/personal-ai-engine/approvals/approval-service.mjs';
+import { InMemoryAgentRepository } from '../../src/zenvik-agent/personal-ai-engine/storage/in-memory-repository.mjs';
 
 test('external action does not execute before approval and executes once', async () => {
   const repository = new InMemoryAgentRepository();

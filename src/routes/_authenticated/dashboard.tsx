@@ -1,5 +1,6 @@
 import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
 import { isUnlocked } from "@/lib/passcode";
+import { setReturnTo } from "@/lib/return-to";
 import { DrinkPicture } from "@/components/recipes/DrinkPicture";
 import { useMemo, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -29,7 +30,7 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
-  beforeLoad: () => { if (!isUnlocked()) throw redirect({ to: "/unlock" }); },
+  beforeLoad: () => { setReturnTo("/dashboard"); if (!isUnlocked()) throw redirect({ to: "/unlock" }); },
   component: DashboardPage,
 });
 

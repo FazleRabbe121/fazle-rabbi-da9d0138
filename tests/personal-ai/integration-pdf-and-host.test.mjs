@@ -8,7 +8,7 @@ import {
   assertDocumentQuality,
   assertHostAppAdapter,
   createAgentRequestHandler,
-} from '../../src/personal-ai-engine/index.mjs';
+} from '../../src/zenvik-agent/personal-ai-engine/index.mjs';
 
 class DeterministicJsonModelClient {
   async generateJSON({ user }) {

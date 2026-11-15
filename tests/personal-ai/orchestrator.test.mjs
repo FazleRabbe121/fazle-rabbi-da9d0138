@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { AgentOrchestrator } from '../../src/personal-ai-engine/agents/agent-orchestrator.mjs';
+import { AgentOrchestrator } from '../../src/zenvik-agent/personal-ai-engine/agents/agent-orchestrator.mjs';
 
 test('planner can delegate only to registered agents and returns execution trace', async () => {
   const model = { async generateJSON() { return { steps: [{ agent: 'research', task: 'Look for roles', input: { country: 'Malta' } }] }; } };

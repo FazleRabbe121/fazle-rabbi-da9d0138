@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { OllamaChatClient } from '../../src/personal-ai-engine/llm/ollama-client.mjs';
+import { OllamaChatClient } from '../../src/zenvik-agent/personal-ai-engine/llm/ollama-client.mjs';
 
 test('uses Ollama chat endpoint and parses structured JSON', async () => {
   const calls = [];

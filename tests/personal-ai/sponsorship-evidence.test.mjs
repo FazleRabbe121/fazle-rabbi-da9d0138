@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifySponsorshipEvidence } from '../../src/personal-ai-engine/jobs/sponsorship-evidence.mjs';
+import { classifySponsorshipEvidence } from '../../src/zenvik-agent/personal-ai-engine/jobs/sponsorship-evidence.mjs';
 
 test('confirms sponsorship only with explicit wording on a configured official source', () => {
   const result = classifySponsorshipEvidence({

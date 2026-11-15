@@ -38,7 +38,7 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATA_DIR = path.resolve(__dirname, '../../data');
+const DATA_DIR = path.resolve(__dirname, '../../../data');
 const DB_FILE_PATH = path.join(DATA_DIR, 'interview_center_db.json');
 
 export const AUTHORIZED_ADMIN_EMAIL = 'fazle.rabbe.doc@gmail.com';

@@ -44,6 +44,19 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
+  // Integration (ZENVIK-AGENT inside the portfolio): put the <html> theme classes back
+  // when this app unmounts, so the portfolio keeps its own look. Declared first so it
+  // captures the classes before the theme effect below changes them.
+  useEffect(() => {
+    const root = document.documentElement;
+    const hadDark = root.classList.contains('dark');
+    const hadLight = root.classList.contains('light');
+    return () => {
+      root.classList.toggle('dark', hadDark);
+      root.classList.toggle('light', hadLight);
+    };
+  }, []);
+
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {

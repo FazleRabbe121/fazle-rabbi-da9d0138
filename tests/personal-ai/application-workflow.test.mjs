@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CareerAgentPlatform } from '../../src/personal-ai-engine/agents/career-agent-platform.mjs';
-import { InMemoryAgentRepository } from '../../src/personal-ai-engine/storage/in-memory-repository.mjs';
+import { CareerAgentPlatform } from '../../src/zenvik-agent/personal-ai-engine/agents/career-agent-platform.mjs';
+import { InMemoryAgentRepository } from '../../src/zenvik-agent/personal-ai-engine/storage/in-memory-repository.mjs';
 
 test('draft uses the existing default CV and sending waits for admin opt-in plus owner approval', async () => {
   const repository = new InMemoryAgentRepository();

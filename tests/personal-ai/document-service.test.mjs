@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { DocumentIntelligenceService } from "../../src/personal-ai-engine/documents/document-service.mjs";
+import { DocumentIntelligenceService } from "../../src/zenvik-agent/personal-ai-engine/documents/document-service.mjs";
 
 const generated = {
   title: "Bartender Interview Preparation",

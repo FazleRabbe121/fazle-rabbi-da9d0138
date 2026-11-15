@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createAgentRequestHandler } from '../../src/personal-ai-engine/http/create-agent-handler.mjs';
+import { createAgentRequestHandler } from '../../src/zenvik-agent/personal-ai-engine/http/create-agent-handler.mjs';
 
 test('user ID comes from the host auth adapter, not the request body', async () => {
   let discoveredUser = null;

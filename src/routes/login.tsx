@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Monogram } from "@/components/site/Monogram";
 import { publicAsset } from "@/lib/media";
 import { isUnlocked } from "@/lib/passcode";
+import { getReturnTo } from "@/lib/return-to";
 
 export const Route = createFileRoute("/login")({
   head: () => ({
@@ -49,7 +50,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (!isUnlocked()) { navigate({ to: "/unlock", replace: true }); return; }
-    supabase.auth.getUser().then(({ data }) => { if (data.user) navigate({ to: "/dashboard", replace: true }); });
+    supabase.auth.getUser().then(({ data }) => { if (data.user) navigate({ to: getReturnTo(), replace: true }); });
   }, [navigate]);
 
   async function onSignup(e: React.FormEvent<HTMLFormElement>) {
@@ -62,7 +63,7 @@ function LoginPage() {
     const { data, error } = await supabase.auth.signUp({ ...p.data, options: { emailRedirectTo: window.location.origin + publicAsset("") } });
     setBusy(false);
     if (error) return setErr(error.message);
-    if (data.session) return navigate({ to: "/dashboard", replace: true });
+    if (data.session) return navigate({ to: getReturnTo(), replace: true });
     setSent(p.data.email); setMode("login");
   }
 
@@ -74,7 +75,7 @@ function LoginPage() {
     const { error } = await supabase.auth.signInWithPassword(p.data);
     setBusy(false);
     if (error) return setErr(error.message === "Invalid login credentials" ? "Incorrect email or password." : error.message);
-    navigate({ to: "/dashboard", replace: true });
+    navigate({ to: getReturnTo(), replace: true });
   }
 
   async function onForgot(e: React.FormEvent<HTMLFormElement>) {

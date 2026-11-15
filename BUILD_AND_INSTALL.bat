@@ -317,7 +317,7 @@ if not exist "node_modules\" (
 
 rem Build web assets (dist)
 echo       - Compiling web interface (npm run build)...
-call npm run build
+call npm run build:zenvik
 if !errorlevel! neq 0 (
     echo.
     echo ======================================================================
@@ -332,10 +332,10 @@ echo       - Bundling web assets into Android project...
 if not exist "android\app\src\main\assets\dist" (
     mkdir "android\app\src\main\assets\dist" >nul 2>&1
 )
-xcopy /s /e /y /q /i "dist\*" "android\app\src\main\assets\dist\" >nul 2>&1
+xcopy /s /e /y /q /i "dist-zenvik\*" "android\app\src\main\assets\dist\" >nul 2>&1
 if !errorlevel! neq 0 (
     rem Fallback copy
-    robocopy "dist" "android\app\src\main\assets\dist" /E /NFL /NDL /NJH /NJS /nc /ns /np >nul 2>&1
+    robocopy "dist-zenvik" "android\app\src\main\assets\dist" /E /NFL /NDL /NJH /NJS /nc /ns /np >nul 2>&1
 )
 echo       - Web assets synchronized successfully [OK]
 

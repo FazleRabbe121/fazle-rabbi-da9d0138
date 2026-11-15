@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { InterviewService } from '../../src/personal-ai-engine/interviews/interview-service.mjs';
-import { InMemoryAgentRepository } from '../../src/personal-ai-engine/storage/in-memory-repository.mjs';
+import { InterviewService } from '../../src/zenvik-agent/personal-ai-engine/interviews/interview-service.mjs';
+import { InMemoryAgentRepository } from '../../src/zenvik-agent/personal-ai-engine/storage/in-memory-repository.mjs';
 
 test('starts role interview and stores answer without fabricating an AI score', async () => {
   const repository = new InMemoryAgentRepository();

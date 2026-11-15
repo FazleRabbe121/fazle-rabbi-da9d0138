@@ -21,7 +21,7 @@ import {
   getDocFromServer,
   Unsubscribe,
 } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
+import firebaseConfig from '../../../firebase-applet-config.json';
 import {
   UserProfile,
   UserSettings,

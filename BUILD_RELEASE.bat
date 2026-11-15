@@ -44,7 +44,7 @@ if %JAVA_FOUND% equ 0 (
 )
 
 echo [1/3] Compiling web production bundle (npm run build)...
-call npm run build
+call npm run build:zenvik
 if %errorlevel% neq 0 (
     echo [ERROR] Web build failed.
     pause
@@ -53,7 +53,7 @@ if %errorlevel% neq 0 (
 
 echo [2/3] Bundling web assets into Android project...
 if not exist "android\app\src\main\assets\dist" mkdir "android\app\src\main\assets\dist" >nul 2>&1
-xcopy /s /e /y /q /i "dist\*" "android\app\src\main\assets\dist\" >nul 2>&1
+xcopy /s /e /y /q /i "dist-zenvik\*" "android\app\src\main\assets\dist\" >nul 2>&1
 
 echo [3/3] Compiling Android Release APK via Gradle...
 echo.

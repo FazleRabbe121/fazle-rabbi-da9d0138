@@ -5,14 +5,14 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import dns from 'dns';
 import { GoogleGenAI } from '@google/genai';
-import { jobDatabaseEngine, JobMarketType } from './src/server/jobDatabase.js';
-import { resolveVerifiedEmployerEmail } from './src/utils/verifiedEmployerEmails.js';
-import { interviewCenterRouter } from './src/server/interviewCenterServer.js';
-import { personalAIRouter, handleInternalAgentScheduler, PRESERVED_EXISTING_GEMINI_MODEL_NAME } from './src/server/personalAIServer.js';
-import { aiCooperativeEngine } from './src/server/aiCooperativeEngine.js';
-import { personalAIChatRouter } from './src/server/personalAIChatEngine.js';
-import { recipeBookRouter } from './src/server/recipeBookServer.js';
-import { pythonJobHunterBridge } from './src/server/pythonJobHunterBridge.js';
+import { jobDatabaseEngine, JobMarketType } from './src/zenvik-agent/server/jobDatabase.js';
+import { resolveVerifiedEmployerEmail } from './src/zenvik-agent/utils/verifiedEmployerEmails.js';
+import { interviewCenterRouter } from './src/zenvik-agent/server/interviewCenterServer.js';
+import { personalAIRouter, handleInternalAgentScheduler, PRESERVED_EXISTING_GEMINI_MODEL_NAME } from './src/zenvik-agent/server/personalAIServer.js';
+import { aiCooperativeEngine } from './src/zenvik-agent/server/aiCooperativeEngine.js';
+import { personalAIChatRouter } from './src/zenvik-agent/server/personalAIChatEngine.js';
+import { recipeBookRouter } from './src/zenvik-agent/server/recipeBookServer.js';
+import { pythonJobHunterBridge } from './src/zenvik-agent/server/pythonJobHunterBridge.js';
 
 dotenv.config();
 
@@ -26,6 +26,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+
+// Integration: let the portfolio's /zenvik-agent page (another origin) call this API.
+// Set ZENVIK_ALLOWED_ORIGINS="http://localhost:8080,https://<user>.github.io" in .env.
+const ZENVIK_ALLOWED_ORIGINS = (process.env.ZENVIK_ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean);
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ZENVIK_ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    if (req.method === 'OPTIONS') return res.sendStatus(204);
+  }
+  next();
+});
 
 const cliArgs = process.argv.slice(2);
 const portFlagIdx = cliArgs.indexOf('--port');
@@ -4190,6 +4205,7 @@ async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
+      configFile: path.resolve(__dirname, 'vite.zenvik.config.ts'),
       server: { middlewareMode: true },
       appType: 'spa',
     });
@@ -4202,7 +4218,7 @@ async function startServer() {
         return next();
       }
       try {
-        const indexPath = path.resolve(__dirname, 'index.html');
+        const indexPath = path.resolve(__dirname, 'src', 'zenvik-agent', 'index.html');
         let template = fs.readFileSync(indexPath, 'utf-8');
         template = await vite.transformIndexHtml(url, template);
         res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
@@ -4212,9 +4228,9 @@ async function startServer() {
       }
     });
   } else {
-    app.use(express.static(path.resolve(__dirname, 'dist')));
+    app.use(express.static(path.resolve(__dirname, 'dist-zenvik')));
     app.get('*', (_req: Request, res: Response) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+      res.sendFile(path.resolve(__dirname, 'dist-zenvik', 'index.html'));
     });
   }
 

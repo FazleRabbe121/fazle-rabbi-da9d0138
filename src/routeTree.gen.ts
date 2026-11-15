@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as UnlockRouteImport } from './routes/unlock'
+import { Route as ZenvikAgentRouteImport } from './routes/zenvik-agent'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
 const IndexRoute = IndexRouteImport.update({
@@ -40,6 +41,11 @@ const UnlockRoute = UnlockRouteImport.update({
   path: '/unlock',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ZenvikAgentRoute = ZenvikAgentRouteImport.update({
+  id: '/zenvik-agent',
+  path: '/zenvik-agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/unlock': typeof UnlockRoute
+  '/zenvik-agent': typeof ZenvikAgentRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
 }
 export interface FileRoutesByTo {
@@ -58,6 +65,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/unlock': typeof UnlockRoute
+  '/zenvik-agent': typeof ZenvikAgentRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
 }
 export interface FileRoutesById {
@@ -67,13 +75,26 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/unlock': typeof UnlockRoute
+  '/zenvik-agent': typeof ZenvikAgentRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/reset-password' | '/unlock' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/reset-password'
+    | '/unlock'
+    | '/zenvik-agent'
+    | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/reset-password' | '/unlock' | '/dashboard'
+  to:
+    | '/'
+    | '/login'
+    | '/reset-password'
+    | '/unlock'
+    | '/zenvik-agent'
+    | '/dashboard'
   id:
     | '__root__'
     | '/'
@@ -81,6 +102,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/unlock'
+    | '/zenvik-agent'
     | '/_authenticated/dashboard'
   fileRoutesById: FileRoutesById
 }
@@ -90,6 +112,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   UnlockRoute: typeof UnlockRoute
+  ZenvikAgentRoute: typeof ZenvikAgentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -129,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UnlockRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/zenvik-agent': {
+      id: '/zenvik-agent'
+      path: '/zenvik-agent'
+      fullPath: '/zenvik-agent'
+      preLoaderRoute: typeof ZenvikAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -156,6 +186,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   UnlockRoute: UnlockRoute,
+  ZenvikAgentRoute: ZenvikAgentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

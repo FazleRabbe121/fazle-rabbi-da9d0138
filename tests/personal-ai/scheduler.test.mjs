@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { executeScheduledDailyRun } from '../../src/personal-ai-engine/scheduler/daily-run.mjs';
+import { executeScheduledDailyRun } from '../../src/zenvik-agent/personal-ai-engine/scheduler/daily-run.mjs';
 
 test('scheduled daily operation requires the secret token', async () => {
   const platform = { async runDailyCycleForEnabledUsers() { return { usersProcessed: 2 }; } };
