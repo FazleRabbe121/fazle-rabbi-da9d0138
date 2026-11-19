@@ -1,6 +1,6 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { ArrowLeft, Loader2, ServerOff, X } from "lucide-react";
+import { ArrowLeft, Download, Loader2, ServerOff, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { isUnlocked } from "@/lib/passcode";
 import { setReturnTo } from "@/lib/return-to";
@@ -72,6 +72,15 @@ function ZenvikAgentPage() {
           <span>Back to portfolio</span>
         </Link>
         <h1 className="font-display text-sm font-semibold uppercase tracking-[0.35em] text-gold-gradient">ZENVIK-AGENT</h1>
+        <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={async () => { const m = await import("@/lib/zenvik-backup"); m.downloadZenvikBackup(); }}
+          className="inline-flex items-center gap-1.5 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary"
+          title="Download a copy of everything ZENVIK-AGENT has saved on this device"
+        >
+          <Download className="h-3.5 w-3.5" aria-hidden /> <span className="hidden sm:inline">Export my data</span>
+        </button>
         <span
           className={`hidden items-center gap-1.5 font-display text-[0.6rem] uppercase tracking-[0.2em] sm:inline-flex ${API_URL ? "text-primary" : "text-muted-foreground"}`}
           title={API_URL ? `Server: ${API_URL}` : "The ZENVIK-AGENT server is not connected to this website."}
@@ -79,6 +88,7 @@ function ZenvikAgentPage() {
           <span aria-hidden className={`h-1.5 w-1.5 rounded-full ${API_URL ? "bg-primary" : "bg-muted-foreground"}`} />
           {API_URL ? "Server linked" : "Backend not connected"}
         </span>
+        </div>
       </header>
 
       {notice && (

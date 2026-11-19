@@ -29,6 +29,13 @@
       "when": 1794474336268,
       "tag": "0003_tighten_categories_contact_policies",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795123663448,
+      "tag": "0004_zenvik_phase1_tables",
+      "breakpoints": true
     }
   ]
 }

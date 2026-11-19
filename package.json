@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "zenvik:server": "tsx server.ts",
+    "zenvik:server": "tsx zenvik-server.ts",
     "build:zenvik": "vite build --config vite.zenvik.config.ts",
     "android:build-assets": "vite build --config vite.zenvik.config.ts",
     "test:zenvik": "node --test tests/personal-ai/*.test.mjs",

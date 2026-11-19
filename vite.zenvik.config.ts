@@ -1,5 +1,5 @@
 /**
- * Standalone build of the ZENVIK-AGENT (CCD) app — used by its Express server (server.ts)
+ * Standalone build of the ZENVIK-AGENT (CCD) app — used by its Express server (zenvik-server.ts)
  * and the Android APK scripts. The portfolio itself builds with vite.config.ts.
  *
  *   bun run build:zenvik   -> dist-zenvik/

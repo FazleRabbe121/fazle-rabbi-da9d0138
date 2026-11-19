@@ -184,6 +184,732 @@ export type Database = {
         }
         Relationships: []
       }
+      zen_agent_state: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_ai_cache: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_ai_conversations: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_ai_messages: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_companies: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_cover_letters: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_cv_documents: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_events: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_family_money: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_finance: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_gmail_tokens: {
+        Row: {
+          created_at: string
+          google_email: string | null
+          refresh_token_encrypted: string
+          scopes: string[]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          google_email?: string | null
+          refresh_token_encrypted: string
+          scopes?: string[]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          google_email?: string | null
+          refresh_token_encrypted?: string
+          scopes?: string[]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_interview_attempts: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_interview_participants: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_interview_rubric: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_job_applications: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_job_queue: {
+        Row: {
+          attempts: number
+          created_at: string
+          id: string
+          kind: string
+          last_error: string | null
+          payload: Json
+          run_after: string
+          status: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          id?: string
+          kind: string
+          last_error?: string | null
+          payload?: Json
+          run_after?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          id?: string
+          kind?: string
+          last_error?: string | null
+          payload?: Json
+          run_after?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      zen_jobs: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_outbox: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_recipes: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_rejections: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_relapses: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_reports: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_suppression: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      zen_user_settings: {
+        Row: {
+          created_at: string
+          data: Json
+          id: string
+          source: string
+          source_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          id?: string
+          source?: string
+          source_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

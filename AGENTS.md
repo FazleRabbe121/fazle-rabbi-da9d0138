@@ -38,3 +38,7 @@ use the editor.
 - Public asset URLs go through `publicAsset()` in `src/lib/media.ts` so `VITE_BASE_PATH` sub-paths work.
 - Unit conversion, scaling and cost math live in `src/lib/measure.ts` with tests in `measure.test.ts`.
 - Public venue, training and timeline logos use the shared BrandLogo frame and content-defined optical adjustments so original artwork stays contained and consistently presented.
+- ZENVIK-AGENT lives in `src/zenvik-agent/` with its own loose tsconfig; the portfolio reaches it only via `virtual:zenvik-agent` (lazy) so strict checks and the first load stay clean.
+- ZENVIK-AGENT CSS is injected only while `/zenvik-agent` is mounted, and `/api/*` calls go through `src/zenvik-agent/backend.ts` — never import its server code into the browser.
+- The Express server file must not be named `server.ts` at the root (Nitro treats it as the site's server entry); it is `zenvik-server.ts`.
+- ZENVIK Cloud tables use the `zen_*` shape (user_id, source, source_id, jsonb data) with owner-only RLS, so imports can be re-run without duplicates; Gmail tokens and the queue are service-role only.

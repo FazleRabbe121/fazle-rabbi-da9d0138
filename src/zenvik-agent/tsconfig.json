@@ -31,7 +31,7 @@
     "./**/*.ts",
     "./**/*.tsx",
     "./**/*.mjs",
-    "../../server.ts"
+    "../../zenvik-server.ts"
   ],
   "exclude": [
     "./vite-plugin.ts"
